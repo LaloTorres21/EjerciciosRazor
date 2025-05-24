@@ -1,0 +1,21 @@
+@page
+@Model IntroduccionRazor.Pages.A03CondicionalesModel
+@{
+}
+
+@{ var calificacion = 8;
+	}
+
+<h3>Instrucciones condicioales</h3>
+<p>Tu calificacion es: @calificacion </p>
+@if(calificacion >= 8)
+{
+	<p> Tu estado es aprobado</p>
+	}
+	else
+{
+		<p>Tu estado es reprobado</p>
+}
+<br>
+
+<h3>Instrucciones condicionales</h3>

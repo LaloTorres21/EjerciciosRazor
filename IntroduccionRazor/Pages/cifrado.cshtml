@@ -1,0 +1,25 @@
+@page
+@model IntroduccionRazor.Pages.cifradoModel
+@{
+}
+
+<h3>Cifrado César</h3>
+
+<form method="post">
+    <p>Mensaje: <input type="text" asp-for="Mensaje" /></p>
+    <p>Desplazamiento (n): <input type="number" asp-for="Desplazamiento" min="1" /></p>
+    <p>
+        Acción:
+        <select asp-for="Opcion">
+            <option value="codificar">Codificar</option>
+            <option value="decodificar">Decodificar</option>
+        </select>
+    </p>
+    <p><input type="submit" value="Procesar" /></p>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Resultado))
+{
+    <h4>Resultado:</h4>
+    <p>@Model.Resultado</p>
+}

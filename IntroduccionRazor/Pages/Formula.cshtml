@@ -1,0 +1,21 @@
+@page
+@model IntroduccionRazor.Pages.FormulaModel
+@{
+}
+
+<h3>Evaluar la expresión (ax + by)^n</h3>
+
+<form method="post">
+    <p>a: <input type="number" asp-for="A" /></p>
+    <p>b: <input type="number" asp-for="B" /></p>
+    <p>x: <input type="number" asp-for="X" /></p>
+    <p>y: <input type="number" asp-for="Y" /></p>
+    <p>n: <input type="number" asp-for="N" min="0" /></p>
+    <p><input type="submit" value="Calcular" /></p>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Resultado))
+{
+    <h4>Resultado:</h4>
+    <p>@Model.Resultado</p>
+}

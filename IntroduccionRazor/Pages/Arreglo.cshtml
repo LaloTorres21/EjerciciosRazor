@@ -1,0 +1,75 @@
+@page
+@model IntroduccionRazor.Pages.ArregloModel
+@{
+    ViewData["Title"] = "Análisis de Números Aleatorios";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center">Análisis de Números Aleatorios</h1>
+    
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h3>Arreglo Aleatorio</h3>
+            <div class="d-flex flex-wrap">
+                @foreach (var num in Model.Numeros)
+                {
+                    <div class="border p-2 m-1 text-center" style="width: 50px;">@num</div>
+                }
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Estadísticas</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Suma: @Model.Suma</li>
+                        <li class="list-group-item">Promedio: @Model.Promedio.ToString("F2")</li>
+                        <li class="list-group-item">Moda: @string.Join(" y ", Model.Modas)
+                            @if (Model.Modas.Count > 1)
+                            {
+                                <span class="text-muted">(multi-modas)</span>
+                            }
+                        </li>
+                        <li class="list-group-item">Mediana: @Model.Mediana</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Arreglo Ordenado</h5>
+                    <div class="d-flex flex-wrap">
+                        @foreach (var num in Model.NumerosOrdenados)
+                        {
+                            <div class="border p-2 m-1 text-center" style="width: 50px;">@num</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .container {
+        max-width: 960px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .d-flex.flex-wrap {
+        justify-content: flex-start;
+    }
+</style>
